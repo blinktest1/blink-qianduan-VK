@@ -3,6 +3,9 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm ci
 COPY . .
+# Railway: set VITE_API_BASE in service Variables (enable for build)
+ARG VITE_API_BASE
+ENV VITE_API_BASE=$VITE_API_BASE
 ARG CACHEBUST=1
 RUN echo "bust=$CACHEBUST" && npm run build
 

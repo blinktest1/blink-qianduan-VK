@@ -2,7 +2,8 @@ import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 import { useVK } from '@/composables/useVK'
 
-export const API_BASE = 'https://blink-vk-backend-production.up.railway.app'
+export const API_BASE =
+  import.meta.env.VITE_API_BASE || 'https://blink-vk-backend-production.up.railway.app'
 export const VK_APP_URL = 'https://vk.com/app{YOUR_APP_ID}'
 
 let _authHeader = {}
